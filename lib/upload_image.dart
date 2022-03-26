@@ -16,7 +16,7 @@ class _myhomepageState extends State<myhomepage> {
     // ignore: deprecated_member_use
     final image = await imagePicker.getImage(source: ImageSource.gallery);
     // ignore: deprecated_member_use
-    
+
     setState(() {
       _image = File(image.path);
     });

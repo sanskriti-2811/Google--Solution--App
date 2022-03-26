@@ -3,16 +3,17 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class CurrentLocationScreen extends StatefulWidget {
-  const CurrentLocationScreen({Key  key}) : super(key: key);
+  const CurrentLocationScreen({Key key}) : super(key: key);
 
   @override
   _CurrentLocationScreenState createState() => _CurrentLocationScreenState();
 }
 
 class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
- GoogleMapController googleMapController;
+  GoogleMapController googleMapController;
 
-  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(37.42796133580664, -122.085749655962), zoom: 14);
+  static const CameraPosition initialCameraPosition = CameraPosition(
+      target: LatLng(37.42796133580664, -122.085749655962), zoom: 14);
 
   Set<Marker> markers = {};
 
@@ -36,16 +37,18 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
         onPressed: () async {
           Position position = await _determinePosition();
 
-          googleMapController
-              .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 14)));
-
+          googleMapController.animateCamera(CameraUpdate.newCameraPosition(
+              CameraPosition(
+                  target: LatLng(position.latitude, position.longitude),
+                  zoom: 14)));
 
           markers.clear();
 
-          markers.add(Marker(markerId: const MarkerId('currentLocation'),position: LatLng(position.latitude, position.longitude)));
+          markers.add(Marker(
+              markerId: const MarkerId('currentLocation'),
+              position: LatLng(position.latitude, position.longitude)));
 
           setState(() {});
-
         },
         label: const Text("Current Location"),
         icon: const Icon(Icons.location_history),

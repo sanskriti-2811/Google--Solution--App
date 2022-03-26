@@ -1,4 +1,3 @@
-
 import 'package:first_app/main.dart';
 import 'package:first_app/src/pages/index.dart';
 
@@ -43,12 +42,11 @@ class _Humans_buttonsState extends State<Humans_buttons> {
               primary: Color.fromARGB(255, 54, 244, 212), // background
               onPrimary: Colors.white, // foreground
             ),
-            onPressed: () {Navigator.push(
+            onPressed: () {
+              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>IndexPage()),
+                MaterialPageRoute(builder: (context) => IndexPage()),
               );
-              
-
             },
             child: Text('Voice Call'),
           ),
